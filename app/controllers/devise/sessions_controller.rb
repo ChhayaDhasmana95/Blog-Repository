@@ -11,7 +11,7 @@ class Devise::SessionsController < ApplicationController
       if status == true
   	  	sign_in(user)
         flash[:success] = "Login Successful."
-        redirect_to "/index"
+        redirect_to index_path
       else
         flash[:danger] = "Invalid Login Credentials"
       end
