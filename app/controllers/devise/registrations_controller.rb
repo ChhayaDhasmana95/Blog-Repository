@@ -1,5 +1,5 @@
 class Devise::RegistrationsController < ApplicationController
-  before_action :user_login
+  before_action :user_login, only: [:new,:create]
   # GET /resource/sign_up
   def new
     @user  =User.new

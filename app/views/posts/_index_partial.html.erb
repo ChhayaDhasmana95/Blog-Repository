@@ -28,7 +28,7 @@
             <%= submit_tag  "Add", class: "btn btn-default" %>
           </div>
       <% end %>
-      <%= link_to "#{post.tag.name}", "#"%>
+      <%= link_to "#{post&.tag&.name}", "#"%>
 
     </div>
 </div>
