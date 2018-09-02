@@ -5,7 +5,6 @@ class Devise::SessionsController < ApplicationController
   end
 
   def create
-    debugger
   	user = User.find_by(email: params[:user][:email])
   	if user.present?
 
