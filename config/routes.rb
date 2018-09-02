@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
     
   end
+
+  namespace :admin do
+    resources :posts
+  end
   
   get '/index' => 'posts#index'
   root to: 'posts#index'

@@ -1,6 +1,5 @@
-class PostsController < ApplicationController
-	
-	
+class Admin::PostsController < ApplicationController
+
 	def index
 		
 	end
@@ -13,7 +12,6 @@ class PostsController < ApplicationController
 		
 	end
 	
-	def
 
 	def edit
 		
@@ -23,4 +21,7 @@ class PostsController < ApplicationController
 		
 	end
 
+	def destroy
+		
+	end
 end
