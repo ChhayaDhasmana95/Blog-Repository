@@ -1,6 +1,8 @@
 class Admin::PostsController < ApplicationController
   before_action :is_admin
 
+
+
 	def index
 		@posts = Post.all
 	end
@@ -46,6 +48,19 @@ class Admin::PostsController < ApplicationController
       flash[:error] = "You are not authorized to access this page"
 		end
 	end
+
+  def publish_unpublish_post
+  	@post = Post.find_by(id: params[:id])
+  	if params[:status] == "unpublish"
+  		@post.update(is_published: false)
+  	elsif params[:status] == "publish"
+  		@post.update(is_published: true)
+  	end
+  	@posts = Post.all
+  end
+
+  
+
   private
 	def post_params
 		params.require(:post).permit(:title,:content,:is_published)

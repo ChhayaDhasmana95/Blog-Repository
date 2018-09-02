@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :posts
+    patch '/publish' => 'posts#publish_unpublish_post'
   end
   
   get '/index' => 'posts#index'
