@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
 
+  def set_post_value
+  	@posts = Post.all
+  end
   
 
 	# protected

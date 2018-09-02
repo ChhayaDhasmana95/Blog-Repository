@@ -19,6 +19,14 @@ Rails.application.routes.draw do
   
   get '/index' => 'posts#index'
   root to: 'posts#index'
+
+  resources :post do
+    resources :comments
+  end
+
+  get '/all_comments' => 'comments#show_all_comments'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end

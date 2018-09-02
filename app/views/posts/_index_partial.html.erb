@@ -1,0 +1,36 @@
+<%@posts.each do |post|%>
+<div class="detailBox">
+    <div class="titleBox">
+      <label><%=post.title%></label>
+    </div>
+    <div class="commentBox">
+        
+        <p class="taskDescription"><%=post.content%></p>
+    </div>
+    <div class="actionBox">
+        <ul class="commentList">
+            <li>
+               <%= post&.comments&.last&.user&.email %>
+                <div class="commentText">
+                    <p class=""><%=post&.comments&.last&.text%></p> <span class="date sub-text">on <%=post&.comments&.last&.created_at&.strftime('%d %B, %Y')%></span>
+                    <br/>
+                </div>
+            </li>
+        </ul>
+        <%=link_to "All Comment #{post.comments.size}", "#"%>
+        <%#= render partial: "comments/form"%>
+        <%= form_tag(post_comments_path(post_id: post.id), method: "post", remote: true, class: "form-inline")  do%>
+        <%#= hidden_field_tag :post_id, value: post.id %>
+          <div class="form-group">
+            <%= text_field_tag :text,' ', class: "form-group" %>
+          </div>
+          <div class="form-group">
+            <%= submit_tag  "Add", class: "btn btn-default" %>
+          </div>
+      <% end %>
+      <%= link_to "#{post.tag.name}", "#"%>
+
+    </div>
+</div>
+
+<%end%>
