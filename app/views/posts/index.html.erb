@@ -1,1 +1,16 @@
-<%= "Hello World" %>
+<% @posts.each do |post| %>
+<div class="post-div">
+  <h1 class="post-title"> <%= post.title %> </h1>
+  <div class="glyphicon glyphicon-calendar" id="post-date">
+    <%= post.created_at.strftime("%b %d, %Y") %>
+  </div>
+  <div class="post-content">
+    <%= post.content %>
+  </div>
+  <%# if user_signed_in?  %>
+   <!-- div class="edit-delete">
+      
+    </div> -->
+  <%# end %>
+</div></br>
+<% end %>

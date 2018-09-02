@@ -5,8 +5,10 @@ class Devise::SessionsController < ApplicationController
   end
 
   def create
+    debugger
   	user = User.find_by(email: params[:user][:email])
   	if user.present?
+
   	  status = user.valid_password?(params[:user][:password])
       if status == true
   	  	sign_in(user)

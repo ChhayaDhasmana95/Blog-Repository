@@ -1,26 +1,7 @@
 class PostsController < ApplicationController
 	
-	
 	def index
-		
-	end
-
-	def new
-		
-	end
-
-	def create
-		
-	end
-	
-	def
-
-	def edit
-		
-	end
-
-	def update
-		
+		@posts = Post.where(is_published: true).order(created_at: "desc")
 	end
 
 end

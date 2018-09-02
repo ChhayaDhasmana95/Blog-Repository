@@ -118,3 +118,19 @@ font-size: 150%;
 footer {
   color: #64103F;
 }
+
+
+//Listing Post styling
+
+.post-div {
+   box-sizing: content-box;    
+    width: 300px;
+    height: 100px;
+    padding: 30px;    
+    border: 10px solid #191956;
+}
+h1 {
+   font-size: 30px; 
+   margin-top: 0px;
+    margin-bottom: 10px;
+}
