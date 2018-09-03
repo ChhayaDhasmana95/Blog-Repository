@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
 	def show_all_comments
 	  @post = Post.find_by(id: params[:id]).includes(:comments)
-	  @comments = @post.comments
+	  @comments = @post.comments.order(created_at: "desc")
 	end
 
     
