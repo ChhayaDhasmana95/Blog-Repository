@@ -1,5 +1,5 @@
 class Devise::SessionsController < ApplicationController
-
+  before_action :user_login, only:[:new, :index]
   def new
     @user = User.new
   end

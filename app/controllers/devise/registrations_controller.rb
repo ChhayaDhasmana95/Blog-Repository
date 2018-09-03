@@ -25,11 +25,6 @@ class Devise::RegistrationsController < ApplicationController
 
   private
 
-  def user_login
-   if current_user
-     redirect_to index_path
-   end
-  end
   def user_params
     user_params = params.require(:user).permit( :email, :password, :password_confirmation)
   end

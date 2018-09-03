@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
-
+  
   def set_post_value
   	@posts = Post.where(is_published: true).order(created_at: "desc").includes(:comments)
   end
   
+  def user_login
+   if current_user
+     redirect_to index_path
+   end
+  end
 
 
 	# protected
