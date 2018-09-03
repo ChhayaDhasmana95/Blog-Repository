@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   def set_post_value
-  	@posts = Post.all
+  	@posts = Post.where(is_published: true).order(created_at: "desc").includes(:comments)
   end
   
 

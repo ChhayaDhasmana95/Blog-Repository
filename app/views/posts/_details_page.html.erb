@@ -1,25 +1,25 @@
-<%@posts.each do |post|%>
 <div class="detailBox">
     <div class="titleBox">
-      <label><%=post.title%></label>
+      <label><%= @post.title%></label>
     </div>
     <div class="commentBox">
-        
-        <p class="taskDescription"><%=post.content%></p>
+      <p class="taskDescription"><%= @post.content%></p>
     </div>
     <div class="actionBox">
         <ul class="commentList">
+          <% @post.comments.each do |comment| %>
             <li>
-               <%= post&.comments&.last&.user&.email %>
+               <%= comment&.user&.email %>
                 <div class="commentText">
-                    <p class=""><%=post&.comments&.last&.text%></p> <span class="date sub-text">on <%=post&.comments&.last&.created_at&.strftime('%d %B, %Y')%></span>
+                    <p class=""><%= comment&.text%></p> <span class="date sub-text">on <%= comment&.created_at&.strftime('%d %B, %Y')%></span>
                     <br/>
                 </div>
             </li>
+            <% end %>
         </ul>
-        <%=link_to "All Comment #{post.comments.size}", post_path(id: post.id) %>
+        <%=link_to "All Comment #{@post.comments.size}", "#"%>
         <%#= render partial: "comments/form"%>
-        <%= form_tag(post_comments_path(post_id: post.id,type: "index"), method: "post", remote: true, class: "form-inline")  do%>
+        <%= form_tag(post_comments_path(post_id: @post.id,type: "show"), method: "post", remote: true, class: "form-inline")  do%>
         <%#= hidden_field_tag :post_id, value: post.id %>
           <div class="form-group">
             <%= text_field_tag :text,' ', class: "form-group" %>
@@ -28,9 +28,6 @@
             <%= submit_tag  "Add", class: "btn btn-default" %>
           </div>
       <% end %>
-      <%= link_to "#{post&.tag&.name}", detail_path(id: post.id), remote: true%>
 
     </div>
 </div>
-
-<%end%>

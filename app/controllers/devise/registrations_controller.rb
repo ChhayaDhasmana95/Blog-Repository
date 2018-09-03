@@ -10,7 +10,7 @@ class Devise::RegistrationsController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      flash[:success] = "You Registered Successfully"
+      flash[:notice] = "You Registered Successfully"
       redirect_to new_user_session_path
     else
       unless params[:user][:password] == params[:user][:password_confirmation]

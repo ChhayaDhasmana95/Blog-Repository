@@ -1,1 +1,5 @@
-$('#comment_update').html("<%= escape_javascript(render partial: 'posts/index_partial')%>")
+<% if @type == "index" %>
+  $('#comment_update').html("<%= escape_javascript(render partial: 'posts/index_partial')%>");
+<% else %>
+  $('#comment_update').html("<%= escape_javascript(render partial: 'posts/details_page')%>");
+<% end %>

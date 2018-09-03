@@ -11,7 +11,7 @@ class Devise::SessionsController < ApplicationController
   	  status = user.valid_password?(params[:user][:password])
       if status == true
   	  	sign_in(user)
-        flash[:success] = "Login Successful."
+        flash[:notice] = "Login Successful."
         if user.admin?
           redirect_to admin_posts_path
         else

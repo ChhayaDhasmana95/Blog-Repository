@@ -28,6 +28,7 @@
 	        <% end %>
 	        <%= link_to '<i class="fa fa-pencil" aria-hidden="true"><span class="tooltiptext">Edit</span></i>'.html_safe, edit_admin_post_path(id: post.id)%>
 	        <%= link_to '<i class="fa fa-trash" aria-hidden="true"><span class="tooltiptext">Delete</span></i>'.html_safe, admin_post_path(id: post.id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+	        <%= link_to '<i class="fa fa-eye" aria-hidden="true"><span class="tooltiptext">View</span></i>'.html_safe, post_path(id: post.id)%>
 	        </td>
 	      </tr>  
 	      <% end %> 

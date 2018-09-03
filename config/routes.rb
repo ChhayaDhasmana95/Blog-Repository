@@ -20,9 +20,11 @@ Rails.application.routes.draw do
   get '/index' => 'posts#index'
   root to: 'posts#index'
 
-  resources :post do
+  resources :posts do
     resources :comments
   end
+
+  get '/detail' => 'posts#details'
 
   get '/all_comments' => 'comments#show_all_comments'
 
